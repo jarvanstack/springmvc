@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="restFul风格-mvc-04:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/restFul_mvc_04_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="restFul风格-mvc-04/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="restFul风格-mvc-04" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: junit:junit:4.10" />
+          <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.21" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.4" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.2" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.2" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.12" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.8.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.8.RELEASE" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

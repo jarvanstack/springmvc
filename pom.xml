@@ -11,6 +11,8 @@
     <modules>
         <module>helloSpringMVC-01</module>
         <module>helloSpringMVC-02</module>
+        <module>注解mvc-03</module>
+        <module>restFul风格-mvc-04</module>
     </modules>
 
     <dependencies>
