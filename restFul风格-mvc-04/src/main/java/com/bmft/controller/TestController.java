@@ -13,7 +13,6 @@ public class TestController {
     public String test01(@PathVariable int a ,@PathVariable int b , Model model){
         int result = a+b;
         model.addAttribute("message"," a + b = "+result);
-
         return "test01";
     }
 

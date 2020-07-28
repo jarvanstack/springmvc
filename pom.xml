@@ -13,6 +13,9 @@
         <module>helloSpringMVC-02</module>
         <module>注解mvc-03</module>
         <module>restFul风格-mvc-04</module>
+        <module>数据处理和跳转-mvc-05</module>
+        <module>乱码问题-mvc-06</module>
+        <module>json-mvc-07</module>
     </modules>
 
     <dependencies>
@@ -95,6 +98,13 @@
             <version>1.2</version>
         </dependency>
 
+<!--        ===========json 工具=============-->
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.73</version>
+        </dependency>
     </dependencies>
 
 

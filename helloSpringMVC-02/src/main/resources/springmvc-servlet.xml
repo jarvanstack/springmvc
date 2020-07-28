@@ -17,6 +17,6 @@
     </bean>
     <!--1,2,是写死的,3配置视图解析器自己配置。-->
     <!--    ==================注册bean =============-->
-    <bean id="/hello" class="com.bmft.controller.HelloController"/>
+    <bean id="/hello" class="com.bmft.com.bmft.controller.HelloController"/>
 
 </beans>

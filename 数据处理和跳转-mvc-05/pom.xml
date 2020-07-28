@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>注解mvc-03</artifactId>
+    <artifactId>数据处理和跳转-mvc-05</artifactId>
+
 
 </project>
