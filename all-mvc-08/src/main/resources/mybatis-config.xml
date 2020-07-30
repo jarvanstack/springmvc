@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--【最多人使用的日志log4j，需要导包】-->
+        <setting name="logImpl" value="LOG4J"/>
+        <!--设置下划线和驼峰的自动映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--显示开启二级缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!--    =========mybatis的配置文件，配置内容为:============-->
+    <!--    1.别名alias-->
+    <typeAliases>
+        <package name="com.bmft.pojo"/>
+    </typeAliases>
+    <!--2.注册dao层的mapper-->
+    <mappers>
+        <package name="com.bmft.dao"/>
+    </mappers>
+
+
+
+
+
+</configuration>

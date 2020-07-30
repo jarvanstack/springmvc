@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <!--    整合service层，-->
+    <!--    1. 指定注解的扫描的包-->
+    <context:component-scan base-package="com.bmft.service"/>
+
+
+    <!--    2.将dao层的 BookMapper注入到 service层中，-->
+    <!--    因为dao层有直接扫描dao包下的所有文件实现动态配置bean，所以这里能使用bookMapper-->
+    <!--    当然我们也可以使用注解实现注入 ，这里是手动注入，我们需要注入实现类.
+      @Autowired
+      @Qualifier("bookMapper")
+      -->
+<!--        <bean id="bookServiceImpl" class="com.bmft.service.BookServiceImpl">-->
+<!--            <property name="bookMapper" ref="bookMapper"/>-->
+<!--        </bean>-->
+
+    <!--    =====================3.事务=============-->
+    <!--    （1）.jdbc 事务管理器 ，写死的-->
+    <bean id="txManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!-- （2）.配置事务通知 id -->
+    <!--id随意这里是官方的名字 事务切入-->
+    <tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <!--配置哪些方法使用什么样的事务,配置事务的传播特性-->
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--    （3）.配置AOP织入-->
+    <aop:config>
+        <aop:pointcut id="txPointCut" expression="execution(* com.bmft.service.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointCut"/>
+    </aop:config>
+
+</beans>

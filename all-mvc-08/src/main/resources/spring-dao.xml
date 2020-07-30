@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    ==========整合dao层的mapper内容，就是Mybatis=======-->
+    <!--    1.配置关联的数据库配置-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!-- 2.数据库连接池 -->
+    <!--数据库连接池
+        dbcp 半自动化操作 不能自动连接
+        c3p0 自动化操作（自动的加载配置文件 并且设置到对象里面）
+    -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!-- 配置连接池属性 -->
+        <property name="driverClass" value="${jdbc.driver}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <!-- c3p0连接池的私有属性 -->
+        <property name="maxPoolSize" value="30"/>
+        <property name="minPoolSize" value="10"/>
+        <!-- 关闭连接后不自动commit -->
+        <property name="autoCommitOnClose" value="false"/>
+        <!-- 获取连接超时时间 -->
+        <property name="checkoutTimeout" value="10000"/>
+        <!-- 当获取连接失败重试次数 -->
+        <property name="acquireRetryAttempts" value="2"/>
+    </bean>
+
+
+
+    <!--    3.配置sqlSessionFactory，因为涉及dao层操作，我们这里关联mybatis-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
+
+    <!-- 4.新内容配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 -->
+<!--    这个似乎很关键，因为之前需要的Mapper dao 的实现类 消失了-->
+    <!--解释 ：https://www.cnblogs.com/jpfss/p/7799806.html-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!-- 注入sqlSessionFactory -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <!-- 给出需要扫描Dao接口包 -->
+        <property name="basePackage" value="com.bmft.dao"/>
+    </bean>
+
+
+<!--&lt;!&ndash;    2.我们直接扫描dao的包然后使用注解不行么
+我们直接用这个是不行的，因为 之前Mybatis整合 Spring 需要MapperImpl 实现类
+为什么现在不需要实现类了呢，因为上面的 4 点的 代码帮我们实现类实现类，
+我们现在直接调用 BookService 就可以直接当做实现类来做，减少实现类的代码量
+，所以，必然只有使用上面的扫描的方式。
+&ndash;&gt;-->
+<!--    <context:component-scan base-package="com.bmft.dao"/>-->
+
+
+</beans>

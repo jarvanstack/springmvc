@@ -32,22 +32,8 @@
         <!-- 后缀 -->
         <property name="suffix" value=".jsp"/>
     </bean>
-    <!--    上面第一个和第二几乎不用动了，偶尔要求配置一下第三个视图解析器-->
-<!--    =============spring json防止乱码=============-->
-    <mvc:annotation-driven>
-        <mvc:message-converters register-defaults="true">
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="UTF-8"/>
-            </bean>
-            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="objectMapper">
-                    <bean class="org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean">
-                        <property name="failOnEmptyBeans" value="false"/>
-                    </bean>
-                </property>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+
+
 
 
 </beans>
