@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mvc-11-文件上传和下载</artifactId>
+    <artifactId>file-transfer-mvc-11</artifactId>
 
 
 </project>

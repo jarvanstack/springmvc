@@ -2,9 +2,9 @@ package com.bmft.controller;
 
 import com.bmft.pojo.Books;
 import com.bmft.service.BookService;
-import jdk.nashorn.internal.runtime.Logging;
 import lombok.Data;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ import java.util.Map;
 //@RestController("")//父请求 请求拼装,写到子类下，用的时候才会提示
 public class BookController {
     //1.导入正确的包 创建全局longer对象
-    static Logger logger = Logger.getLogger(Logging.class);
+    private static final Logger logger = LogManager.getLogger(BookController.class);
     @Qualifier("bookServiceImpl")//注解注入字段值
     private BookService bookService;
 

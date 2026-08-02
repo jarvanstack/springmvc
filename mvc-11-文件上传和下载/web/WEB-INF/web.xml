@@ -12,6 +12,11 @@
             <param-value>classpath:applicationContext.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size>
+            <max-request-size>10485760</max-request-size>
+            <file-size-threshold>40960</file-size-threshold>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>

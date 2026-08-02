@@ -9,6 +9,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>注解mvc-03</artifactId>
+    <artifactId>annotations-mvc-03</artifactId>
 
 </project>

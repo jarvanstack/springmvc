@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <!--【最多人使用的日志log4j，需要导包】-->
-        <setting name="logImpl" value="LOG4J"/>
+        <!-- 使用受支持的 Log4j 2 实现。 -->
+        <setting name="logImpl" value="LOG4J2"/>
         <!--设置下划线和驼峰的自动映射-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--显示开启二级缓存-->

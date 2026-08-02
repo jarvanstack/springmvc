@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mvc-10-过滤拦截器</artifactId>
+    <artifactId>interceptor-mvc-10</artifactId>
 
 
 </project>
